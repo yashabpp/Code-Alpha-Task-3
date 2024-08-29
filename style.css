@@ -1,0 +1,123 @@
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+}
+
+.music-player {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 120px; 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+#title {
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+#artist {
+    font-size: 20px; 
+    font-weight: normal;
+}
+
+#duration {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+
+.music-info {
+    margin-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.music-info p {
+    margin: 10px 0;
+}
+
+#progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin: 20px 0;
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #76c7c0;
+    border-radius: 10px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.player-controls button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#prev::before {
+    content: "\25C0"; 
+}
+
+#play {
+    font-size: 30px; 
+    background-color: #2e85a4; 
+    border-radius: 50%; 
+    color: white; 
+    padding: 10px; 
+}
+
+#play::before {
+    content: "\25B6"; 
+}
+
+#pause {
+    background-color: #2e85a4;
+    border-radius: 50%;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pause::before {
+    content: "\23F8"; 
+    font-size: 36px; 
+}
+
+#next::before {
+    content: "\25B6"; 
+}
+
