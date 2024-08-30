@@ -9,6 +9,7 @@ const duration = document.getElementById('duration');
 const progressContainer = document.getElementById('progress-container');
 const progressBar = document.getElementById('progress-bar');
 const musicPlayer = document.querySelector('.music-player');
+const songListElement = document.getElementById('song-list');
 
 const songs = [
     { title: 'Unstoppable', artist: 'Sia', src: 'song1.mp3', img: 'artist.webp' },
@@ -23,9 +24,7 @@ function loadSong(song) {
     artist.textContent = song.artist;
     audio.src = song.src;
     musicPlayer.style.backgroundImage = `url(${song.img})`;
-    document.body.style.backgroundImage = `url(${song.img})`;
-    console.log(`Loading song: ${song.title}`);
-    console.log(`Background image URL: ${song.img}`);
+    document.body.style.backgroundColor = `Black`;
 
     audio.onloadedmetadata = () => {
         const totalMinutes = Math.floor(audio.duration / 60);
@@ -76,6 +75,20 @@ function setProgress(e) {
     audio.currentTime = (clickX / width) * duration;
 }
 
+function populateSongList() {
+    songListElement.innerHTML = '';
+    songs.forEach((song, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${song.title} - ${song.artist}`;
+        li.addEventListener('click', () => {
+            currentSongIndex = index;
+            loadSong(songs[currentSongIndex]);
+            playSong();
+        });
+        songListElement.appendChild(li);
+    });
+}
+
 audio.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);
 playButton.addEventListener('click', playSong);
@@ -83,4 +96,5 @@ pauseButton.addEventListener('click', pauseSong);
 prevButton.addEventListener('click', prevSong);
 nextButton.addEventListener('click', nextSong);
 
+populateSongList();
 loadSong(songs[currentSongIndex]);
